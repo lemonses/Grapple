@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj03m0o4hj422"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_i2mtq"]
+[ext_resource type="PackedScene" uid="uid://claf3vyxr13cs" path="res://scenes/player/player.tscn" id="2_8sgl0"]
+[ext_resource type="PackedScene" uid="uid://b85l55h4jf5d7" path="res://scenes/objects/platform.tscn" id="3_8rxh7"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_i2mtq")
+metadata/_edit_horizontal_guides_ = [-570.0]
+
+[node name="Player" parent="." instance=ExtResource("2_8sgl0")]
+position = Vector2(105, 474)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Left" type="Node2D" parent="Projectiles"]
+
+[node name="Right" type="Node2D" parent="Projectiles"]
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(601, 250)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(10208, 1021)
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(9116, 576)
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(259.333, 636)
+
+[node name="Platform5" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(187, 978)
+
+[node name="Platform6" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(1775, 186)
+
+[node name="Platform7" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(9690, 798)
+
+[node name="Platform8" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(8445, 690)
+
+[node name="Platform9" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(-291, 240)
+
+[node name="Platform10" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(1101, 488)
+
+[node name="Platform11" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(4426.33, 586)
+
+[node name="Platform12" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(4013.33, 365)
+
+[node name="Platform13" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(5953, 996)
+
+[node name="Platform14" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(3121, 295)
+
+[node name="Platform15" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(2520, 148)
+
+[node name="Platform16" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(6492, 787)
+
+[node name="Platform17" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(7098, 645)
+
+[node name="Platform18" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(7757, 620)
+
+[node name="Platform19" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(5416, 806)
+
+[node name="Platform20" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(5182.33, 597)
+
+[node name="Platform21" parent="Platforms" instance=ExtResource("3_8rxh7")]
+position = Vector2(88394, 1639)
+scale = Vector2(300, 1)
+
+[connection signal="grapple" from="Player" to="." method="_on_player_grapple"]
+[connection signal="ungrapple" from="Player" to="." method="_on_player_ungrapple"]

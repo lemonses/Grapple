@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf88d4v604k33"]
+
+[ext_resource type="Texture2D" uid="uid://otkallb72p60" path="res://graphics/chain.png" id="1_2jbp6"]
+[ext_resource type="Script" path="res://scenes/projectiles/rope.gd" id="1_q5c0i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6ld2"]
+size = Vector2(5, 2)
+
+[node name="Rope" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 13
+script = ExtResource("1_q5c0i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u6ld2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_2jbp6")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(-3, 0)
+node_a = NodePath("..")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-6, 0)
+
+[node name="NextRope" type="Node2D" parent="."]

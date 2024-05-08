@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj03m0o4hj422"]
+
+[ext_resource type="Texture2D" uid="uid://y2qgwa136d7n" path="res://graphics/platform.png" id="1_82ugg"]
+[ext_resource type="PackedScene" uid="uid://claf3vyxr13cs" path="res://scenes/player/player.tscn" id="2_8sgl0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fki7p"]
+size = Vector2(587, 91)
+
+[node name="Level" type="Node2D"]
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(211, 627)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+position = Vector2(-0.5, -1)
+rotation = 1.5708
+texture = ExtResource("1_82ugg")
+region_enabled = true
+region_rect = Rect2(0, 397.367, 100, 603.633)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_fki7p")
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(559, 340)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform2"]
+position = Vector2(-0.5, -0.999985)
+rotation = 1.5708
+texture = ExtResource("1_82ugg")
+region_enabled = true
+region_rect = Rect2(0, 397.367, 100, 603.633)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(0, -0.499985)
+shape = SubResource("RectangleShape2D_fki7p")
+
+[node name="Player" parent="." instance=ExtResource("2_8sgl0")]
+position = Vector2(33, 186)

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bf88d4v604k33"]
+
+[ext_resource type="Texture2D" uid="uid://otkallb72p60" path="res://graphics/chain.png" id="1_2jbp6"]
+[ext_resource type="Script" path="res://scenes/projectiles/rope.gd" id="1_4uiy1"]
+[ext_resource type="Texture2D" uid="uid://c87psqayoblnf" path="res://graphics/player.png" id="2_dqo0n"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8bthh"]
+friction = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6ld2"]
+size = Vector2(2.88462, 19)
+
+[node name="Rope" type="RigidBody2D" groups=["Rope"]]
+position = Vector2(-1, 0)
+rotation = 1.5708
+collision_layer = 4
+collision_mask = 9
+mass = 0.3
+physics_material_override = SubResource("PhysicsMaterial_8bthh")
+center_of_mass_mode = 1
+center_of_mass = Vector2(2, 0)
+script = ExtResource("1_4uiy1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1.83167e-07, 5)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_dqo0n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.0248064, 0.495364)
+scale = Vector2(2.00478, 3.80316)
+texture = ExtResource("1_2jbp6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.50111e-12, 0.5)
+scale = Vector2(2.08, 1)
+shape = SubResource("RectangleShape2D_u6ld2")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(4.70599e-05, 13)
+
+[node name="BackPin" type="PinJoint2D" parent="."]
+position = Vector2(2.53399e-05, 7)
+node_a = NodePath("..")
